@@ -1,0 +1,40 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+	<ul class="nav nav-tabs">
+  	  <li role="presentation" class="active"><a data-toggle="tab" href="#dashboard">Dashboard</a></li>
+	  <li role="presentation"><a data-toggle="tab" href="#trades">Live trades</a></li>
+	</ul>
+
+	<div class="tab-content">
+	    <div role="tabpanel" class="tab-pane active" id="dashboard">
+	    	Account Value : {{account_value | currency: 'INR': true}}
+
+	    	<div class='trade-signals'>
+	    		<ul>
+	    			<li *ngFor="let signal of tradesignals">
+	    				<div class='row-signal'>
+	    					<ul>
+	    						<li>{{signal.symbol}}</li>
+	    						<li>{{signal.reason}}</li>
+	    					</ul>
+	    					<button class='btn btn-default'>Take this trade</button>
+	    				</div>
+	    			</li>
+	    		</ul>
+	    	</div>
+	    	<div class='place-order'>
+	    		<input type="text" value="{{buy_price}}" />
+	    		<input type="text" value="{{stop_loss}}" />
+	    		<input type="text" value="{{target}}" />
+	    		<input name='pctTarget' type="radio" value='5' /><label>5</label>
+	    		<input name='pctTarget' type="radio" value='10' /><label>10</label>
+	    		<input name='pctTarget' type="radio" value='20' /><label>20</label>
+	    		<input name='pctTarget' type="radio" value='30' /><label>30</label>
+	    		<button class='btn btn-alert'>Confirm Order ? </button>
+	    	</div>
+	    </div>
+	    <div role="tabpanel" class="tab-pane" id="trades">Trades page</div>
+  	</div>
+
+</div>
+
